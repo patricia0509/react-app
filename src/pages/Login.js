@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser, clearError } from '../store/authSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
+import StyledButton from '../components/StyledButton';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -74,20 +75,9 @@ const Login = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          style={{
-            width: '100%',
-            padding: '10px',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
+        <StyledButton type="submit" style={{ width: '100%' }}>
           Login
-        </button>
+        </StyledButton>
       </form>
 
       <p style={{ textAlign: 'center', marginTop: '16px' }}>

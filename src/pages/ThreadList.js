@@ -31,52 +31,52 @@ const ThreadList = () => {
         <meta name="description" content="Browse and discuss various topics in Dicoding Forum" />
       </Helmet>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: '20px'
-      }}>
-        <h1>Forum Threads</h1>
-        {token && (
-          <Link
-            to="/create-thread"
-            style={{
-              padding: '10px 20px',
-              backgroundColor: '#007bff',
-              color: 'white',
-              textDecoration: 'none',
-              borderRadius: '4px'
-            }}
-          >
-            Create Thread
-          </Link>
-        )}
-      </div>
-
-      {error && (
         <div style={{
-          color: 'red',
-          backgroundColor: '#ffebee',
-          padding: '10px',
-          borderRadius: '4px',
-          marginBottom: '16px'
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '20px'
         }}>
-          {error}
+          <h1>Forum Threads</h1>
+          {token && (
+            <Link
+              to="/create-thread"
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#007bff',
+                color: 'white',
+                textDecoration: 'none',
+                borderRadius: '4px'
+              }}
+            >
+            Create Thread
+            </Link>
+          )}
         </div>
-      )}
 
-      {threads.length === 0 ? (
-        <p>No threads available.</p>
-      ) : (
-        threads.map((thread) => (
-          <ThreadItem
-            key={thread.id}
-            thread={thread}
-            owner={getUserById(thread.ownerId)}
-          />
-        ))
-      )}
+        {error && (
+          <div style={{
+            color: 'red',
+            backgroundColor: '#ffebee',
+            padding: '10px',
+            borderRadius: '4px',
+            marginBottom: '16px'
+          }}>
+            {error}
+          </div>
+        )}
+
+        {threads.length === 0 ? (
+          <p>No threads available.</p>
+        ) : (
+          threads.map((thread) => (
+            <ThreadItem
+              key={thread.id}
+              thread={thread}
+              owner={getUserById(thread.ownerId)}
+            />
+          ))
+        )}
       </div>
     </>
   );

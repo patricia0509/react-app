@@ -1,6 +1,6 @@
 /**
  * Skenario pengujian threadsSlice:
- * 
+ *
  * - threadsSlice reducer
  *   - should return initial state when given unknown action
  *   - should handle clearError action correctly

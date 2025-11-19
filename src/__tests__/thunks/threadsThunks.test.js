@@ -1,14 +1,14 @@
 /**
  * Skenario pengujian threads thunks:
- * 
+ *
  * - fetchThreads thunk
  *   - should dispatch correct actions when fetch is successful
  *   - should dispatch correct actions when fetch fails
- * 
+ *
  * - createThread thunk
  *   - should dispatch correct actions when creation is successful
  *   - should dispatch correct actions when creation fails
- * 
+ *
  * - createComment thunk
  *   - should dispatch correct actions when comment creation is successful
  *   - should dispatch correct actions when comment creation fails
@@ -19,14 +19,18 @@ import threadsSlice, { fetchThreads, createThread, createComment } from '../../s
 
 // Mock API
 jest.mock('../../services/api', () => ({
-  getThreads: jest.fn(),
-  createThread: jest.fn(),
-  createComment: jest.fn(),
+  __esModule: true,
+  default: {
+    getThreads: jest.fn(),
+    createThread: jest.fn(),
+    createComment: jest.fn(),
+  },
 }));
+
+import api from '../../services/api';
 
 describe('threads thunks', () => {
   let store;
-  const api = require('../../services/api').default;
 
   beforeEach(() => {
     store = configureStore({

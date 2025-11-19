@@ -1,6 +1,6 @@
 /**
  * Skenario pengujian ThreadItem component:
- * 
+ *
  * - ThreadItem component
  *   - should render thread information correctly
  *   - should display thread title as clickable link

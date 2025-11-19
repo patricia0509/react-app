@@ -2,13 +2,26 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
+import loadable from '@loadable/component';
 import store from './store';
 import Navbar from './components/Navbar';
-import ThreadList from './pages/ThreadList';
-import ThreadDetail from './pages/ThreadDetail';
-import CreateThread from './pages/CreateThread';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import LoadingSpinner from './components/LoadingSpinner';
+
+const ThreadList = loadable(() => import('./pages/ThreadList'), {
+  fallback: <LoadingSpinner />
+});
+const ThreadDetail = loadable(() => import('./pages/ThreadDetail'), {
+  fallback: <LoadingSpinner />
+});
+const CreateThread = loadable(() => import('./pages/CreateThread'), {
+  fallback: <LoadingSpinner />
+});
+const Login = loadable(() => import('./pages/Login'), {
+  fallback: <LoadingSpinner />
+});
+const Register = loadable(() => import('./pages/Register'), {
+  fallback: <LoadingSpinner />
+});
 
 function App() {
   return (
